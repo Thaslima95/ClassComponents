@@ -3,16 +3,14 @@ import React, { Component } from "react";
 export default class Snapmethod extends Component {
   constructor(props) {
     super(props);
-    this.state = { language: this.props.language || "HTML" };
+    this.state = { language: this.props.language || "HTML", change: false };
   }
   getSnapshotBeforeUpdate(prevprops, prevstate) {
     document.getElementById("div1").innerHTML =
-      "Value before" + prevprops.language
-        ? prevprops.language
-        : prevstate.language;
+      "Value before" + this.state.change && prevstate.language;
   }
   handleChange = () => {
-    this.setState({ language: "ReactJS" });
+    this.setState({ language: "ReactJS", change: true });
   };
   componentDidMount() {
     setTimeout(() => {

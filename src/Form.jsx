@@ -18,6 +18,7 @@ export default class Form extends Component {
       <div>
         <input
           type="text"
+          placeholder="Enter 614001"
           onChange={(e) => this.setState({ pincode: e.target.value })}
         />
         <p id="mydiv"></p>
